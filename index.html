@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <i class="fas fa-user-graduate student-icon"></i>
+            <h2>Student Registration Form</h2>
+            <p class="form-subtitle">Please complete the form below</p>
+        </div>
+
+        <form action="#" method="post">
+            
+            <!-- Personal Information Section -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="form-group">
+                    <label for="firstName"><i class="fas fa-user"></i> First Name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="lastName"><i class="fas fa-user"></i> Last Name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+                <div class="form-group">
+                    <label for="middleInitial"><i class="fas fa-user"></i> Middle Initial</label>
+                    <input type="text" id="middleInitial" name="middleInitial" maxlength="1">
+                </div>
+                <div class="form-group">
+                    <label for="contactNumber"><i class="fas fa-phone"></i> Contact Number</label>
+                    <input type="tel" id="contactNumber" name="contactNumber" required>
+                </div>
+                <div class="form-group">
+                    <label for="dob"><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender"><i class="fas fa-venus-mars"></i> Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="" disabled selected>Select your gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+            </fieldset>
+
+<!-- Academic Information Section -->
+<fieldset>
+    <legend>Academic Information</legend>
+    <div class="form-group">
+        <label for="studentID"><i class="fas fa-id-card"></i> Student ID</label>
+        <input type="text" id="studentID" name="studentID" required placeholder="00-00000">
+        <span class="error-msg"></span>
+    </div>
+    <div class="form-group">
+        <label for="course"><i class="fas fa-book"></i> Course</label>
+        <select id="course" name="course" required>
+            <option value="" disabled selected>Select your course</option>
+            <option value="BSIT">Bachelor of Science in Information Technology</option>
+            <option value="BSA">Bachelor of Science in Accountancy</option>
+            <option value="BSCpE">Bachelor of Science in Computer Engineering</option>
+            <option value="BEED">Bachelor of Elementary Education</option>
+            <option value="BSED">Bachelor of Secondary Education</option>
+        </select>
+        <span class="error-msg"></span>
+    </div>
+    <div class="form-group">
+        <label for="yearLevel"><i class="fas fa-layer-group"></i> Year Level</label>
+        <select id="yearLevel" name="yearLevel" required>
+            <option value="" disabled selected>Select your year level</option>
+            <option value="1st">1st Year</option>
+            <option value="2nd">2nd Year</option>
+            <option value="3rd">3rd Year</option>
+            <option value="4th">4th Year</option>
+        </select>
+        <span class="error-msg"></span>
+    </div>
+</fieldset>
+
+            <div class="form-terms">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I agree to the terms and conditions and acknowledge the privacy policy</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+            <div id="successMessage" class="success-message"></div>
+            </form>
+        
+            <div class="form-footer">
+            &copy; 2025 Abad, Hernane and Malana
+            </div>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
