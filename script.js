@@ -65,15 +65,38 @@ $(document).ready(function() {
         });
     });
 
-    // --- CONTACT NUMBER VALIDATION (11 digits max) ---
-    $("#contactNumber").on("input", function() {
-        this.value = this.value.replace(/[^0-9]/g, "").slice(0, 11);
-    }).on("blur", function() {
-        const val = $(this).val().trim();
-        if (!val) setError($(this), "Enter your Contact Number is required");
-        else if (!/^\d{1,11}$/.test(val)) setError($(this), "Contact Number must contain numbers only");
-        else setSuccess($(this));
-    });
+// --- CONTACT NUMBER VALIDATION --- 
+$("#contactNumber").on("input", function() {
+    let value = this.value.replace(/[^0-9]/g, ""); // Remove non-digits
+    
+    // Limit the number of digits to 11
+    this.value = value.slice(0, 11);
+
+    // Check if the first two digits are "09", if not, show the error message
+    if (value && !value.startsWith("09")) {
+        setError($(this), "Contact Number should start with 09-000-000-000");
+    } else {
+        removeError($(this)); // Remove error if the number starts with "09"
+    }
+}).on("blur", function() {
+    const val = $(this).val().trim();
+    
+    // If the contact number is empty, show an error
+    if (!val) {
+        setError($(this), "Enter your Contact Number is required");
+    }
+    // If the number does not start with "09", show the specific error
+    else if (!val.startsWith("09")) {
+        setError($(this), "Contact Number should start with 09-000-000-000");
+    }
+    // If the number contains anything other than digits, show the error
+    else if (!/^\d{11}$/.test(val)) {
+        setError($(this), "Contact Number must contain numbers only");
+    } else {
+        setSuccess($(this)); // If it's valid, mark it as success
+    }
+});
+
 
     // --- STUDENT ID VALIDATION (22–25 only) ---
     $("#studentID").on("input", function () {
